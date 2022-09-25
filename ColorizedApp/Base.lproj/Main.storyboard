@@ -46,18 +46,27 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OlV-DQ-DWf" secondAttribute="height" multiplier="8:1" id="Dya-uQ-M9w"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="redSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="rsP-Fe-Ckq"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XbU-aB-00Q">
                                 <rect key="frame" x="145" y="340" width="244" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XbU-aB-00Q" secondAttribute="height" multiplier="8:1" id="TT2-y0-75c"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="greenSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="Vg5-sX-URs"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="39O-0w-FHh">
                                 <rect key="frame" x="145" y="391" width="244" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="39O-0w-FHh" secondAttribute="height" multiplier="8:1" id="nAP-A5-iPR"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="blueSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="eKv-zJ-1gv"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h9-gR-dve">
                                 <rect key="frame" x="106" y="295" width="24" height="21"/>
@@ -112,6 +121,15 @@
                             <constraint firstItem="XbU-aB-00Q" firstAttribute="top" secondItem="OlV-DQ-DWf" secondAttribute="bottom" constant="20" id="x8r-ih-l5b"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueColorValue" destination="T7I-Oe-DcN" id="M6j-AD-9i2"/>
+                        <outlet property="blueSlider" destination="39O-0w-FHh" id="leZ-dS-w20"/>
+                        <outlet property="coloredView" destination="T3C-6n-wGk" id="dqG-xi-FX6"/>
+                        <outlet property="greenColorValue" destination="3Zb-Pp-vvi" id="TvM-qU-AE5"/>
+                        <outlet property="greenSlider" destination="XbU-aB-00Q" id="SqJ-iM-iNQ"/>
+                        <outlet property="redColorValue" destination="1h9-gR-dve" id="4f3-W6-Nnw"/>
+                        <outlet property="redSlider" destination="OlV-DQ-DWf" id="KoD-JC-wrN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
