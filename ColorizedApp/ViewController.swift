@@ -59,7 +59,5 @@ class ViewController: UIViewController {
         greenColorValue.text = String(greenSlider.value)
         blueColorValue.text = String(blueSlider.value)
     }
-
-    
 }
 
