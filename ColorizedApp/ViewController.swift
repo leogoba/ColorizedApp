@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultColor()
         
         coloredView.layer.cornerRadius = coloredView.frame.height / 10
         
