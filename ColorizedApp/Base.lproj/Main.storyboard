@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="width" secondItem="OlV-DQ-DWf" secondAttribute="height" multiplier="8:1" id="Dya-uQ-M9w"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="redSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="rsP-Fe-Ckq"/>
+                                    <action selector="slidersMoving:" destination="BYZ-38-t0r" eventType="valueChanged" id="lNa-pr-xm8"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XbU-aB-00Q">
@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="width" secondItem="XbU-aB-00Q" secondAttribute="height" multiplier="8:1" id="TT2-y0-75c"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="greenSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="Vg5-sX-URs"/>
+                                    <action selector="slidersMoving:" destination="BYZ-38-t0r" eventType="valueChanged" id="smJ-wn-sIr"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="39O-0w-FHh">
@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="width" secondItem="39O-0w-FHh" secondAttribute="height" multiplier="8:1" id="nAP-A5-iPR"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="blueSliderMoving" destination="BYZ-38-t0r" eventType="valueChanged" id="eKv-zJ-1gv"/>
+                                    <action selector="slidersMoving:" destination="BYZ-38-t0r" eventType="valueChanged" id="2jt-Ka-YPV"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h9-gR-dve">

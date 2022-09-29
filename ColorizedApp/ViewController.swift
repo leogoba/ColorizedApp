@@ -20,26 +20,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultColor()
-        
         coloredView.layer.cornerRadius = coloredView.frame.height / 10
-        
+        resultColor()
         slidersSetting()
     }
     
-    @IBAction func redSliderMoving() {
-        redColorValue.text = String(round(redSlider.value * 100) / 100)
+    @IBAction func slidersMoving(_ sender: UISlider) {
         resultColor()
-    }
-    
-    @IBAction func greenSliderMoving() {
-        greenColorValue.text = String(round(greenSlider.value * 100) / 100)
-        resultColor()
-    }
-    
-    @IBAction func blueSliderMoving() {
-        blueColorValue.text = String(round(blueSlider.value * 100) / 100)
-        resultColor()
+        switch sender {
+        case redSlider:
+            redColorValue.text = String(format: "%.2f", redSlider.value)
+        case greenSlider:
+            greenColorValue.text = String(format: "%.2f", greenSlider.value)
+        default:
+            blueColorValue.text = String(format: "%.2f", blueSlider.value)
+        }
     }
     
     private func resultColor() {
