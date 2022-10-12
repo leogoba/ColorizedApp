@@ -15,17 +15,12 @@ class WelcomeViewController: UIViewController {
     
     private var viewBackgroundColor: UIColor!
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settigsVC = segue.destination as? SettingsViewController else { return }
         viewBackgroundColor = view.backgroundColor
         settigsVC.backgroundColorOfView = viewBackgroundColor
         settigsVC.delegate = self
     }
-    
 }
 
 // MARK: SettingViewControllerDelegate

@@ -11,31 +11,36 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet var coloredView: UIView!
     
-    @IBOutlet var redColorValue: UILabel!
-    @IBOutlet var greenColorValue: UILabel!
-    @IBOutlet var blueColorValue: UILabel!
+    @IBOutlet var redColorValueLabel: UILabel!
+    @IBOutlet var greenColorValueLabel: UILabel!
+    @IBOutlet var blueColorValueLabel: UILabel!
     
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    @IBOutlet var redColorValueTF: UITextField!
+    @IBOutlet var greenColorValueTF: UITextField!
+    @IBOutlet var blueColorValueTF: UITextField!
+    
     var backgroundColorOfView: UIColor!
     var delegate: SettingViewControllerDelegate!
     
-    var redColor: CGFloat = 0
-    var greenColor: CGFloat = 0
-    var blueColor: CGFloat = 0
-    var alphaColor: CGFloat = 0
+    private var redColor: CGFloat = 0
+    private var greenColor: CGFloat = 0
+    private var blueColor: CGFloat = 0
+    private var alphaColor: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        redColorValueTF.delegate = self
+        greenColorValueTF.delegate = self
+        blueColorValueTF.delegate = self
+        
         coloredView.layer.cornerRadius = coloredView.frame.height / 10
-        //resultColor()
         slidersSetting()
         coloredView.backgroundColor = backgroundColorOfView
-        
-        
         
         backgroundColorOfView.getRed(
             &redColor,
@@ -48,20 +53,24 @@ class SettingsViewController: UIViewController {
         greenSlider.value = Float(greenColor)
         blueSlider.value = Float(blueColor)
         
-        updateLabel(for: redColorValue, greenColorValue, blueColorValue)
-        
-        self.buttonDoneTapped()
+        updateLabel(for: redColorValueLabel, greenColorValueLabel, blueColorValueLabel)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func slidersMoving(_ sender: UISlider) {
+        passesDataBetweenSlidersAndTF()
         resultColor()
         switch sender {
         case redSlider:
-            redColorValue.text = String(format: "%.2f", redSlider.value)
+            redColorValueLabel.text = String(format: "%.2f", redSlider.value)
         case greenSlider:
-            greenColorValue.text = String(format: "%.2f", greenSlider.value)
+            greenColorValueLabel.text = String(format: "%.2f", greenSlider.value)
         default:
-            blueColorValue.text = String(format: "%.2f", blueSlider.value)
+            blueColorValueLabel.text = String(format: "%.2f", blueSlider.value)
         }
     }
     
@@ -88,22 +97,76 @@ class SettingsViewController: UIViewController {
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
-        redColorValue.text = String(redSlider.value)
-        greenColorValue.text = String(greenSlider.value)
-        blueColorValue.text = String(blueSlider.value)
+//        redColorValue.text = String(redSlider.value)
+//        greenColorValue.text = String(greenSlider.value)
+//        blueColorValue.text = String(blueSlider.value)
     }
     
     private func updateLabel(for labels: UILabel...) {
         labels.forEach { label in
             switch label {
-            case redColorValue:
-                redColorValue.text = String(format: "%.2f", redSlider.value)
-            case greenColorValue:
-                greenColorValue.text = String(format: "%.2f", greenSlider.value)
+            case redColorValueLabel:
+                redColorValueLabel.text = String(format: "%.2f", redSlider.value)
+            case greenColorValueLabel:
+                greenColorValueLabel.text = String(format: "%.2f", greenSlider.value)
             default:
-                blueColorValue.text = String(format: "%.2f", blueSlider.value)
+                blueColorValueLabel.text = String(format: "%.2f", blueSlider.value)
             }
         }
+        passesDataBetweenSlidersAndTF()
+    }
+    
+    private func passesDataBetweenSlidersAndTF() {
+        redColorValueTF.text = redColorValueLabel.text
+        greenColorValueTF.text = greenColorValueLabel.text
+        blueColorValueTF.text = blueColorValueLabel.text
+    }
+    
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
+extension SettingsViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue) else { return }
+        
+        if let value = Float(textField.text ?? ""), value >= 0, value <= 1 {
+            switch textField {
+            case redColorValueTF:
+                redSlider.value = value
+                redColorValueLabel.text = String(format: "%.2f", redSlider.value)
+            case greenColorValueLabel:
+                greenSlider.value = value
+                greenColorValueLabel.text = String(format: "%.2f", greenSlider.value)
+            default:
+                blueSlider.value = value
+                blueColorValueLabel.text = String(format: "%.2f", blueSlider.value)
+            }
+        } else {
+            showAlert(
+                title: "Внимание! Вы ввели неверное число!",
+                message: "Введите значение от 0 до 1😉",
+                textField: textField
+            )
+        }
+        
+        if textField == redColorValueTF {
+            redSlider.value = numberValue
+            redColorValueLabel.text = String(format:"%.2f", numberValue)
+        } else if textField == greenColorValueTF {
+            greenSlider.value = numberValue
+            greenColorValueLabel.text = String(format:"%.2f", numberValue)
+        } else {
+            blueSlider.value = numberValue
+            blueColorValueLabel.text = String(format:"%.2f", numberValue)
+        }
+    }
+}
