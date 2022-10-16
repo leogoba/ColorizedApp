@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5260A23528F732F700C1DCF5 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260A23428F732F700C1DCF5 /* UITextField + Extension.swift */; };
 		52E6DCAF28F5C6770014E592 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E6DCAE28F5C6770014E592 /* WelcomeViewController.swift */; };
 		52EBD26A28E0A78A006B7A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EBD26928E0A78A006B7A64 /* AppDelegate.swift */; };
 		52EBD26C28E0A78A006B7A64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EBD26B28E0A78A006B7A64 /* SceneDelegate.swift */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5260A23428F732F700C1DCF5 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		52E6DCAE28F5C6770014E592 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		52EBD26628E0A78A006B7A64 /* ColorizedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EBD26928E0A78A006B7A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 				52EBD26B28E0A78A006B7A64 /* SceneDelegate.swift */,
 				52E6DCAE28F5C6770014E592 /* WelcomeViewController.swift */,
 				52EBD26D28E0A78A006B7A64 /* SettingsViewController.swift */,
-				5260A23428F732F700C1DCF5 /* UITextField + Extension.swift */,
 				52EBD26F28E0A78A006B7A64 /* Main.storyboard */,
 				52EBD27228E0A78C006B7A64 /* Assets.xcassets */,
 				52EBD27428E0A78C006B7A64 /* LaunchScreen.storyboard */,
@@ -145,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EBD26E28E0A78A006B7A64 /* SettingsViewController.swift in Sources */,
-				5260A23528F732F700C1DCF5 /* UITextField + Extension.swift in Sources */,
 				52E6DCAF28F5C6770014E592 /* WelcomeViewController.swift in Sources */,
 				52EBD26A28E0A78A006B7A64 /* AppDelegate.swift in Sources */,
 				52EBD26C28E0A78A006B7A64 /* SceneDelegate.swift in Sources */,
